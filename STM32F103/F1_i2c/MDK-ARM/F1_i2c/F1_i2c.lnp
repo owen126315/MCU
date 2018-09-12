@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"f1_i2c\system_stm32f1xx.o"
+"f1_i2c\startup_stm32f103xb.o"
+"f1_i2c\stm32f1xx_hal_dma.o"
+"f1_i2c\stm32f1xx_hal_gpio.o"
+"f1_i2c\stm32f1xx_hal_tim_ex.o"
+"f1_i2c\stm32f1xx_hal_rcc_ex.o"
+"f1_i2c\stm32f1xx_hal_flash.o"
+"f1_i2c\stm32f1xx_hal_flash_ex.o"
+"f1_i2c\stm32f1xx_hal_rcc.o"
+"f1_i2c\stm32f1xx_hal_cortex.o"
+"f1_i2c\stm32f1xx_hal_gpio_ex.o"
+"f1_i2c\stm32f1xx_hal_i2c.o"
+"f1_i2c\stm32f1xx_hal_pwr.o"
+"f1_i2c\stm32f1xx_hal_tim.o"
+"f1_i2c\stm32f1xx_hal.o"
+"f1_i2c\stm32f1xx_hal_msp.o"
+"f1_i2c\stm32f1xx_it.o"
+"f1_i2c\main.o"
+--library_type=microlib --strict --scatter "F1_i2c\F1_i2c.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "F1_i2c.map" -o F1_i2c\F1_i2c.axf

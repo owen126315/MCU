@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"trycan_rx\stm32f1xx_hal.o"
+"trycan_rx\stm32f1xx_hal_flash.o"
+"trycan_rx\stm32f1xx_hal_tim_ex.o"
+"trycan_rx\stm32f1xx_hal_rcc_ex.o"
+"trycan_rx\stm32f1xx_hal_can.o"
+"trycan_rx\stm32f1xx_hal_gpio.o"
+"trycan_rx\stm32f1xx_hal_flash_ex.o"
+"trycan_rx\stm32f1xx_hal_pwr.o"
+"trycan_rx\stm32f1xx_hal_rcc.o"
+"trycan_rx\stm32f1xx_hal_gpio_ex.o"
+"trycan_rx\stm32f1xx_hal_dma.o"
+"trycan_rx\stm32f1xx_hal_cortex.o"
+"trycan_rx\stm32f1xx_hal_tim.o"
+"trycan_rx\stm32f1xx_hal_uart.o"
+"trycan_rx\stm32f1xx_it.o"
+"trycan_rx\main.o"
+"trycan_rx\stm32f1xx_hal_msp.o"
+"trycan_rx\system_stm32f1xx.o"
+"trycan_rx\startup_stm32f103xb.o"
+--library_type=microlib --strict --scatter "tryCan_Rx\tryCan_Rx.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "tryCan_Rx.map" -o tryCan_Rx\tryCan_Rx.axf

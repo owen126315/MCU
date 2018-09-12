@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"try_pwm\stm32f1xx_it.o"
+"try_pwm\main.o"
+"try_pwm\stm32f1xx_hal_msp.o"
+"try_pwm\system_stm32f1xx.o"
+"try_pwm\startup_stm32f103xb.o"
+"try_pwm\stm32f1xx_hal.o"
+"try_pwm\stm32f1xx_hal_dma.o"
+"try_pwm\stm32f1xx_hal_rcc_ex.o"
+"try_pwm\stm32f1xx_hal_flash_ex.o"
+"try_pwm\stm32f1xx_hal_tim.o"
+"try_pwm\stm32f1xx_hal_tim_ex.o"
+"try_pwm\stm32f1xx_hal_gpio_ex.o"
+"try_pwm\stm32f1xx_hal_gpio.o"
+"try_pwm\stm32f1xx_hal_flash.o"
+"try_pwm\stm32f1xx_hal_cortex.o"
+"try_pwm\stm32f1xx_hal_rcc.o"
+"try_pwm\stm32f1xx_hal_pwr.o"
+--library_type=microlib --strict --scatter "try_pwm\try_pwm.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "try_pwm.map" -o try_pwm\try_pwm.axf

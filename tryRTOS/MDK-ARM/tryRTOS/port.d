@@ -1,0 +1,13 @@
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+tryrtos\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+tryrtos\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+tryrtos\port.o: ../Inc/FreeRTOSConfig.h
+tryrtos\port.o: ../Inc/main.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+tryrtos\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

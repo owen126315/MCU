@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"try_can\stm32f1xx_hal_rcc.o"
+"try_can\stm32f1xx_hal_gpio.o"
+"try_can\stm32f1xx_hal_tim.o"
+"try_can\stm32f1xx_hal_pwr.o"
+"try_can\stm32f1xx_hal_rcc_ex.o"
+"try_can\stm32f1xx_hal_can.o"
+"try_can\stm32f1xx_hal_dma.o"
+"try_can\stm32f1xx_hal_cortex.o"
+"try_can\stm32f1xx_hal_flash.o"
+"try_can\stm32f1xx_hal_flash_ex.o"
+"try_can\stm32f1xx_hal_gpio_ex.o"
+"try_can\stm32f1xx_hal.o"
+"try_can\stm32f1xx_hal_tim_ex.o"
+"try_can\stm32f1xx_hal_uart.o"
+"try_can\startup_stm32f103xb.o"
+"try_can\system_stm32f1xx.o"
+"try_can\stm32f1xx_hal_msp.o"
+"try_can\main.o"
+"try_can\stm32f1xx_it.o"
+--library_type=microlib --strict --scatter "try_can\try_can.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "try_can.map" -o try_can\try_can.axf

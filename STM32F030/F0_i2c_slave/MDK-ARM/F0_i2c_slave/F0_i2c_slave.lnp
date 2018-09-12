@@ -1,0 +1,24 @@
+--cpu Cortex-M0
+"f0_i2c_slave\system_stm32f0xx.o"
+"f0_i2c_slave\stm32f0xx_hal_pwr_ex.o"
+"f0_i2c_slave\stm32f0xx_hal_tim.o"
+"f0_i2c_slave\stm32f0xx_hal_cortex.o"
+"f0_i2c_slave\stm32f0xx_hal_flash_ex.o"
+"f0_i2c_slave\stm32f0xx_hal_i2c_ex.o"
+"f0_i2c_slave\stm32f0xx_hal_rcc.o"
+"f0_i2c_slave\stm32f0xx_hal_tim_ex.o"
+"f0_i2c_slave\stm32f0xx_hal.o"
+"f0_i2c_slave\stm32f0xx_hal_flash.o"
+"f0_i2c_slave\stm32f0xx_hal_dma.o"
+"f0_i2c_slave\stm32f0xx_hal_i2c.o"
+"f0_i2c_slave\stm32f0xx_hal_gpio.o"
+"f0_i2c_slave\stm32f0xx_hal_pwr.o"
+"f0_i2c_slave\stm32f0xx_hal_rcc_ex.o"
+"f0_i2c_slave\startup_stm32f030x6.o"
+"f0_i2c_slave\stm32f0xx_it.o"
+"f0_i2c_slave\stm32f0xx_hal_msp.o"
+"f0_i2c_slave\main.o"
+--library_type=microlib --strict --scatter "F0_i2c_slave\F0_i2c_slave.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "F0_i2c_slave.map" -o F0_i2c_slave\F0_i2c_slave.axf

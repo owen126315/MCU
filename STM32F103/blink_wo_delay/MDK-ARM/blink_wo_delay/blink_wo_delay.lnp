@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"blink_wo_delay\stm32f1xx_hal_tim.o"
+"blink_wo_delay\stm32f1xx_hal_flash.o"
+"blink_wo_delay\stm32f1xx_hal_gpio_ex.o"
+"blink_wo_delay\stm32f1xx_hal_pwr.o"
+"blink_wo_delay\stm32f1xx_hal_rcc.o"
+"blink_wo_delay\stm32f1xx_hal_dma.o"
+"blink_wo_delay\stm32f1xx_hal_tim_ex.o"
+"blink_wo_delay\stm32f1xx_hal_rcc_ex.o"
+"blink_wo_delay\stm32f1xx_hal_gpio.o"
+"blink_wo_delay\stm32f1xx_hal_flash_ex.o"
+"blink_wo_delay\stm32f1xx_hal.o"
+"blink_wo_delay\stm32f1xx_hal_cortex.o"
+"blink_wo_delay\stm32f1xx_it.o"
+"blink_wo_delay\stm32f1xx_hal_msp.o"
+"blink_wo_delay\main.o"
+"blink_wo_delay\system_stm32f1xx.o"
+"blink_wo_delay\startup_stm32f103xb.o"
+--library_type=microlib --strict --scatter "blink_wo_delay\blink_wo_delay.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "blink_wo_delay.map" -o blink_wo_delay\blink_wo_delay.axf
