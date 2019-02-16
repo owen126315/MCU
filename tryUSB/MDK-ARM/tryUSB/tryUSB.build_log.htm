@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: £gVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Kwong Hau Shing, ad, LIC=----
+License Information: Kwong Hau Shing, ad, LIC=TIVPC-7K145-VEEHA-1J1PE-MA3NH-7ZD80
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 5 (build 528)
 Assembler:       Armasm.exe V5.06 update 5 (build 528)
@@ -22,24 +22,18 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\owen1\Desktop\STM32\tryUSB\MDK-ARM\tryUSB.uvprojx
-Project File Date:  01/16/2018
+Project File Date:  08/16/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'tryUSB'
-compiling usbd_cdc_if.c...
-../Src/usbd_cdc_if.c(272): warning:  #188-D: enumerated type mixed with another type
-  		HAL_GPIO_WritePin(
-PIOC,
-PIO_PIN_13,1);
-../Src/usbd_cdc_if.c(278): warning:  #188-D: enumerated type mixed with another type
-  		HAL_GPIO_WritePin(
-PIOC,
-PIO_PIN_13,0);
-../Src/usbd_cdc_if.c: 2 warnings, 0 errors
+compiling main.c...
+../Src/main.c(104): warning:  #177-D: variable "i"  was declared but never referenced
+  int i =0;
+../Src/main.c: 1 warning, 0 errors
 linking...
 Program Size: Code=10068 RO-data=284 RW-data=356 ZI-data=7844  
-"tryUSB\tryUSB.axf" - 0 Error(s), 2 Warning(s).
+"tryUSB\tryUSB.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +56,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.2
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

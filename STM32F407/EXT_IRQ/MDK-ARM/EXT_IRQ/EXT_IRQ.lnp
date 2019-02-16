@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"ext_irq\startup_stm32f407xx.o"
+"ext_irq\main.o"
+"ext_irq\stm32f4xx_it.o"
+"ext_irq\stm32f4xx_hal_msp.o"
+"ext_irq\myuart.o"
+"ext_irq\stm32f4xx_hal_tim.o"
+"ext_irq\stm32f4xx_hal_tim_ex.o"
+"ext_irq\stm32f4xx_hal_uart.o"
+"ext_irq\stm32f4xx_hal_rcc.o"
+"ext_irq\stm32f4xx_hal_rcc_ex.o"
+"ext_irq\stm32f4xx_hal_flash.o"
+"ext_irq\stm32f4xx_hal_flash_ex.o"
+"ext_irq\stm32f4xx_hal_flash_ramfunc.o"
+"ext_irq\stm32f4xx_hal_gpio.o"
+"ext_irq\stm32f4xx_hal_dma_ex.o"
+"ext_irq\stm32f4xx_hal_dma.o"
+"ext_irq\stm32f4xx_hal_pwr.o"
+"ext_irq\stm32f4xx_hal_pwr_ex.o"
+"ext_irq\stm32f4xx_hal_cortex.o"
+"ext_irq\stm32f4xx_hal.o"
+"ext_irq\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "EXT_IRQ\EXT_IRQ.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "EXT_IRQ.map" -o EXT_IRQ\EXT_IRQ.axf

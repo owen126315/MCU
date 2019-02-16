@@ -1,0 +1,7 @@
+Steps:
+1.	Wake
+2.	SAM Config
+3.	List Passive Device
+4.	InDataExchange (AuthenticateBlock)
+4.1 Mifare Classic
+4.2 Mifare Ultralight

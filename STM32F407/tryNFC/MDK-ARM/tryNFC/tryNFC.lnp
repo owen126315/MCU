@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"trynfc\startup_stm32f407xx.o"
+"trynfc\nfc.o"
+"trynfc\main.o"
+"trynfc\stm32f4xx_it.o"
+"trynfc\stm32f4xx_hal_msp.o"
+"trynfc\stm32f4xx_hal_tim.o"
+"trynfc\stm32f4xx_hal_tim_ex.o"
+"trynfc\stm32f4xx_hal_uart.o"
+"trynfc\stm32f4xx_hal_rcc.o"
+"trynfc\stm32f4xx_hal_rcc_ex.o"
+"trynfc\stm32f4xx_hal_flash.o"
+"trynfc\stm32f4xx_hal_flash_ex.o"
+"trynfc\stm32f4xx_hal_flash_ramfunc.o"
+"trynfc\stm32f4xx_hal_gpio.o"
+"trynfc\stm32f4xx_hal_dma_ex.o"
+"trynfc\stm32f4xx_hal_dma.o"
+"trynfc\stm32f4xx_hal_pwr.o"
+"trynfc\stm32f4xx_hal_pwr_ex.o"
+"trynfc\stm32f4xx_hal_cortex.o"
+"trynfc\stm32f4xx_hal.o"
+"trynfc\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "tryNFC\tryNFC.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "tryNFC.map" -o tryNFC\tryNFC.axf

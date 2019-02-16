@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"dac_with_dam\startup_stm32f407xx.o"
+"dac_with_dam\main.o"
+"dac_with_dam\stm32f4xx_it.o"
+"dac_with_dam\stm32f4xx_hal_msp.o"
+"dac_with_dam\stm32f4xx_hal_dac.o"
+"dac_with_dam\stm32f4xx_hal_dac_ex.o"
+"dac_with_dam\stm32f4xx_hal_tim.o"
+"dac_with_dam\stm32f4xx_hal_tim_ex.o"
+"dac_with_dam\stm32f4xx_hal_rcc.o"
+"dac_with_dam\stm32f4xx_hal_rcc_ex.o"
+"dac_with_dam\stm32f4xx_hal_flash.o"
+"dac_with_dam\stm32f4xx_hal_flash_ex.o"
+"dac_with_dam\stm32f4xx_hal_flash_ramfunc.o"
+"dac_with_dam\stm32f4xx_hal_gpio.o"
+"dac_with_dam\stm32f4xx_hal_dma_ex.o"
+"dac_with_dam\stm32f4xx_hal_dma.o"
+"dac_with_dam\stm32f4xx_hal_pwr.o"
+"dac_with_dam\stm32f4xx_hal_pwr_ex.o"
+"dac_with_dam\stm32f4xx_hal_cortex.o"
+"dac_with_dam\stm32f4xx_hal.o"
+"dac_with_dam\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "DAC_with_DAM\DAC_with_DAM.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "DAC_with_DAM.map" -o DAC_with_DAM\DAC_with_DAM.axf

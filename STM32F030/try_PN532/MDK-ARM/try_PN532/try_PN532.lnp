@@ -1,0 +1,26 @@
+--cpu Cortex-M0
+"try_pn532\startup_stm32f030x6.o"
+"try_pn532\main.o"
+"try_pn532\stm32f0xx_it.o"
+"try_pn532\stm32f0xx_hal_msp.o"
+"try_pn532\stm32f0xx_hal_i2c.o"
+"try_pn532\stm32f0xx_hal_i2c_ex.o"
+"try_pn532\stm32f0xx_hal_tim.o"
+"try_pn532\stm32f0xx_hal_tim_ex.o"
+"try_pn532\stm32f0xx_hal_uart.o"
+"try_pn532\stm32f0xx_hal_uart_ex.o"
+"try_pn532\stm32f0xx_hal_rcc.o"
+"try_pn532\stm32f0xx_hal_rcc_ex.o"
+"try_pn532\stm32f0xx_hal.o"
+"try_pn532\stm32f0xx_hal_gpio.o"
+"try_pn532\stm32f0xx_hal_dma.o"
+"try_pn532\stm32f0xx_hal_cortex.o"
+"try_pn532\stm32f0xx_hal_pwr.o"
+"try_pn532\stm32f0xx_hal_pwr_ex.o"
+"try_pn532\stm32f0xx_hal_flash.o"
+"try_pn532\stm32f0xx_hal_flash_ex.o"
+"try_pn532\system_stm32f0xx.o"
+--library_type=microlib --strict --scatter "try_PN532\try_PN532.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "try_PN532.map" -o try_PN532\try_PN532.axf
