@@ -32,6 +32,7 @@
 "play_wav_with_sd\stm32f4xx_hal.o"
 "play_wav_with_sd\system_stm32f4xx.o"
 "play_wav_with_sd\syscall.o"
+"play_wav_with_sd\ccsbcs.o"
 "play_wav_with_sd\diskio.o"
 "play_wav_with_sd\ff.o"
 "play_wav_with_sd\ff_gen_drv.o"

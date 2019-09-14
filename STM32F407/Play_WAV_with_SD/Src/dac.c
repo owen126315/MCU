@@ -158,67 +158,60 @@ void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac)
 {
 	if(hdac->Instance == DAC)
 	{	
-		//HAL_TIM_Base_Stop(&htim7);
-//		htim7.Instance->CNT = 0;
-//		count = 0;
-		
-		sample_num -= sample_buffer[current_buffer].sample_num;
-		
 		if(sample_num == 0)
 		{
 			is_playing = 0;
 			return;
 		}
 		
-		//change buffer
 		current_buffer ^= 1;
 		
 		//play next buffer
 		if(header.bits_per_sample == 16)
-			HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[1].sample_num, DAC_ALIGN_12B_R);
-		
+			HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[current_buffer].sample_num, DAC_ALIGN_12B_R);
+	
 		if(header.bits_per_sample == 8)
-			HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[1].sample_num, DAC_ALIGN_8B_R);
+			HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[current_buffer].sample_num, DAC_ALIGN_8B_R);
 
-		//read next buffer
-		if(sample_buffer[current_buffer].sample_num != sample_num)
-			read_sample(&sample_buffer[current_buffer^1]);
-		
+//		//read next buffer
+			if((sample_num -= sample_buffer[current_buffer].sample_num) > 0)
+				read_sample(&sample_buffer[current_buffer^1]);
 
 
-		
-		
-		
+			
 //		if(current_buffer == 0)
 //		{
-//				
+//			
 //			//play next buffer
 //			if(header.bits_per_sample == 16)
 //				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[1].buffer, sample_buffer[1].sample_num, DAC_ALIGN_12B_R);
 //		
-//			if(header.bits_per_sample == 8)
-//				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[1].buffer, sample_buffer[1].sample_num, DAC_ALIGN_8B_R);
-
-//			//read nextbuffer
-//			read_sample(&sample_buffer[0]);
-//			current_buffer = 1;
+////			if(header.bits_per_sample == 8)
+////				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[1].buffer, sample_buffer[1].sample_num, DAC_ALIGN_8B_R);
+//			
+//			if((sample_num -= sample_buffer[1].sample_num) > 0)
+//			{
+//				//read nextbuffer
+//				read_sample(&sample_buffer[0]);
+//				current_buffer = 1;
+//			}				
 //		}	
 //		
 //		else if(current_buffer == 1)
-//		{						
+//		{	
 //			//play next buffer
 //			if(header.bits_per_sample == 16)
 //				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[0].buffer, sample_buffer[0].sample_num, DAC_ALIGN_12B_R);
 //		
-//			if(header.bits_per_sample == 8)
-//				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[0].buffer, sample_buffer[0].sample_num, DAC_ALIGN_8B_R);
-
-//			
-//			read_sample(&sample_buffer[0]);
-//			current_buffer = 0;
+////			if(header.bits_per_sample == 8)
+////				HAL_DAC_Start_DMA(hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[0].buffer, sample_buffer[0].sample_num, DAC_ALIGN_8B_R);
+//			if((sample_num -= sample_buffer[0].sample_num) > 0)
+//			{
+//				read_sample(&sample_buffer[1]);
+//				current_buffer = 0;
+//			}
 //		}
-//		
-//		ready_to_play = 1;
+
 	}
 }
 

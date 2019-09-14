@@ -66,6 +66,9 @@ void MX_TIM6_Init(void)
   htim6.Init.Prescaler = 175-1;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim6.Init.Period = 10-1;
+	
+//	htim6.Init.Prescaler = 1-1;
+//	htim6.Init.Period = 2625-1;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -85,7 +88,7 @@ void MX_TIM7_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 8400-1;
+  htim7.Init.Prescaler = 84-1;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim7.Init.Period = 10000-1;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
@@ -164,13 +167,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 } 
 
 /* USER CODE BEGIN 1 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if(htim->Instance == TIM7)
-	{
-		count++;
-	}
-}
+
 /* USER CODE END 1 */
 
 /**

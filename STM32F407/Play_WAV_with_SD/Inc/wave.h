@@ -29,7 +29,7 @@ typedef struct
 
 typedef struct 
 {
-	uint16_t buffer[sample_buffer_size/2];
+	uint16_t buffer[sample_buffer_size];
 	uint16_t sample_num;
 }  Sample_buffer;
 

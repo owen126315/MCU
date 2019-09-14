@@ -101,18 +101,9 @@ int play_wave(char *file_name)
 
 
 		//read first two rounds sample data
-//		HAL_TIM_Base_Start_IT(&htim7);
-//		HAL_TIM_Base_Stop(&htim7);
-//		htim7.Instance->CNT = 0;
-//		count = 0;
-		HAL_TIM_Base_Start_IT(&htim7);
 		if(!read_sample(&sample_buffer[0]))
 			while(1);
-		HAL_TIM_Base_Stop(&htim7);
-//		htim7.Instance->CNT = 0;
-//		count = 0;
-		if(!read_sample(&sample_buffer[1]))
-			while(1);
+		
 
 		//timer 6 setup
 		if(header.sample_rate == 44100)
@@ -125,10 +116,15 @@ int play_wave(char *file_name)
 			htim6.Init.Prescaler = 1-1;
 			htim6.Init.Period = 3809-1;
 		}
-		else if(header.sample_rate == 16000)
+		else if(header.sample_rate == 8000)
 		{
 			htim6.Init.Prescaler = 42-1;
 			htim6.Init.Period = 125-1;
+		}
+		else if(header.sample_rate == 16000)
+		{
+			htim6.Init.Prescaler = 1-1;
+			htim6.Init.Period = 2625-1;
 		}
 		
 		
@@ -142,15 +138,22 @@ int play_wave(char *file_name)
 		HAL_DAC_Start(&hdac,DAC_CHANNEL_1);
 		
 		current_buffer = 0;
-		//HAL_TIM_Base_Start_IT(&htim7);
+
 		if(header.bits_per_sample == 16)
-			HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[0].sample_num, DAC_ALIGN_12B_R);
-		
+		{
+			sample_num -= sample_buffer[current_buffer].sample_num;
+			HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[current_buffer].sample_num, DAC_ALIGN_12B_R);
+		}
+				
 		if(header.bits_per_sample == 8)
-			HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[0].sample_num, DAC_ALIGN_8B_R);
-		
+		{
+			sample_num -= sample_buffer[current_buffer].sample_num;
+			HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)sample_buffer[current_buffer].buffer, sample_buffer[current_buffer].sample_num, DAC_ALIGN_8B_R);
+		}
+				
 		is_playing = 1;
-	
+		if(!read_sample(&sample_buffer[1]))
+			while(1);
 		return 1;	
 	}
 	return 0;
@@ -193,18 +196,18 @@ int read_sample(Sample_buffer *buffer)
 		{
 			if((int)(sample_num - sample_buffer_size) >= 0)
 			{
-				if(f_read(&SDFile, buffer->buffer, sample_buffer_size, &num_of_bytes) != FR_OK)
+				if(f_read(&SDFile, buffer->buffer, sample_buffer_size<<1, &num_of_bytes) != FR_OK)
 				{
 					HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
 					return 0;
 				}	
 				
-				buffer->sample_num = sample_buffer_size/2;
+				buffer->sample_num = sample_buffer_size;
 			}
 			
 			else
 			{
-				if(f_read(&SDFile, buffer->buffer, sample_num<<2, &num_of_bytes) != FR_OK)
+				if(f_read(&SDFile, buffer->buffer, sample_num<<1, &num_of_bytes) != FR_OK)
 				{
 					HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
 					return 0;
@@ -217,12 +220,6 @@ int read_sample(Sample_buffer *buffer)
 			decode_PCM_to_DAC(buffer);
 		}		
 	}
-//			HAL_TIM_Base_Stop(&htim7);
-//		htim7.Instance->CNT = 0;
-//		count = 0;
-	
-	
-	
 	return 1;
 }
 
