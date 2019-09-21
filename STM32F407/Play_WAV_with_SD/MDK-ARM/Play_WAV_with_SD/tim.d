@@ -35,15 +35,3 @@ play_wav_with_sd\tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h
 play_wav_with_sd\tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 play_wav_with_sd\tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 play_wav_with_sd\tim.o: ../Inc/wave.h
-play_wav_with_sd\tim.o: ../Inc/fatfs.h
-play_wav_with_sd\tim.o: ../Middlewares/Third_Party/FatFs/src/ff.h
-play_wav_with_sd\tim.o: ../Middlewares/Third_Party/FatFs/src/integer.h
-play_wav_with_sd\tim.o: ../Inc/ffconf.h
-play_wav_with_sd\tim.o: ../Inc/bsp_driver_sd.h
-play_wav_with_sd\tim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-play_wav_with_sd\tim.o: ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h
-play_wav_with_sd\tim.o: ../Middlewares/Third_Party/FatFs/src/diskio.h
-play_wav_with_sd\tim.o: ../Inc/sd_diskio.h
-play_wav_with_sd\tim.o: ../Inc/tim.h
-play_wav_with_sd\tim.o: ../Inc/dac.h
-play_wav_with_sd\tim.o: ../Inc/wave.h

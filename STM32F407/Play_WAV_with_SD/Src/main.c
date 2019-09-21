@@ -115,16 +115,15 @@ int main(void)
   MX_TIM6_Init();
   MX_DAC_Init();
   MX_SDIO_SD_Init();
-  MX_TIM7_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 	
 	char *my_file_name_0 = "crow2.wav";		
 	char *my_file_name_1 = "Crow.wav";		
-	char *my_file_name_2 = "engine.wav";		
-	char *my_file_name_3 = "1kHz_8000Hz_16bit_mono.wav";		
-	char *my_file_name_4 = "try.wav";	
-	play_wave(my_file_name_3);
+	char *my_file_name_2 = "1999.wav";		
+	char *my_file_name_3 = "1kHz_16000Hz_16bit_mono.wav";		
+	char *my_file_name_4 = "nice-work.wav";	
+	play_wave(my_file_name_4);
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -44,5 +44,4 @@ play_wav_with_sd\wave.o: ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h
 play_wav_with_sd\wave.o: ../Middlewares/Third_Party/FatFs/src/diskio.h
 play_wav_with_sd\wave.o: ../Inc/sd_diskio.h
 play_wav_with_sd\wave.o: ../Inc/tim.h
-play_wav_with_sd\wave.o: ../Inc/wave.h
 play_wav_with_sd\wave.o: ../Inc/dac.h

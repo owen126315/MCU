@@ -2,9 +2,6 @@
 #define __WAVE_H
 
 #include "stm32f4xx_hal.h"
-#include "fatfs.h"
-#include "tim.h"
-#include "dac.h"
 
 #define sample_buffer_size 2046
 
@@ -35,7 +32,6 @@ typedef struct
 
 extern WAVE_Header header;
 extern Sample_buffer sample_buffer[2];
-extern uint8_t count;
 extern uint32_t sample_num;
 
 

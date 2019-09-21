@@ -58,7 +58,6 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 void DMA1_Stream5_IRQHandler(void);
 void SDIO_IRQHandler(void);
-void TIM7_IRQHandler(void);
 void DMA2_Stream3_IRQHandler(void);
 
 #ifdef __cplusplus

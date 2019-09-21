@@ -1,4 +1,7 @@
 #include "wave.h"
+#include "fatfs.h"
+#include "tim.h"
+#include "dac.h"
 
 UINT num_of_bytes;
 uint32_t sample_num;
@@ -234,13 +237,15 @@ void decode_PCM_to_DAC(Sample_buffer *buffer)
 			for(uint16_t i=0; i<buffer->sample_num; i++)
 			{
 				int sign = 1;
-				uint16_t temp = (buffer->buffer[i] <<8) | (buffer->buffer[i] >>8);
-				if(temp & 0X8000)
+				//int16_t temp = (buffer->buffer[i] <<8) | (buffer->buffer[i] >>8);
+				//seems work with 1kHz
+				int16_t temp = buffer->buffer[i];
+				if(temp)
 				{
 					sign = -1;
-					temp = (temp^0xFFFF)+1;
+					temp = ((temp^0xFFFF)+1)*1.5;
 				}
-				buffer->buffer[i] = ( sign * temp + 32768) * 4095 / 65535;
+				buffer->buffer[i] = ( sign * temp + 32767) * 4095 / 65535;
 			}				
 			break;
 		}

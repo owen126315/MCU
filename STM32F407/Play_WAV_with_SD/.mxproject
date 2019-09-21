@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/owen1/Desktop/MCU-master/STM32F407/Play_WAV_with_SD/Inc
+HeaderPath=C:/Users/owen1/Desktop/STM32/STM32F407/Play_WAV_with_SD/Inc
 HeaderFiles=gpio.h;dac.h;dma.h;ffconf.h;bsp_driver_sd.h;sd_diskio.h;fatfs.h;sdio.h;tim.h;stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=C:/Users/owen1/Desktop/MCU-master/STM32F407/Play_WAV_with_SD/Src
+SourcePath=C:/Users/owen1/Desktop/STM32/STM32F407/Play_WAV_with_SD/Src
 SourceFiles=gpio.c;dac.c;dma.c;bsp_driver_sd.c;sd_diskio.c;fatfs.c;sdio.c;tim.c;stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]
