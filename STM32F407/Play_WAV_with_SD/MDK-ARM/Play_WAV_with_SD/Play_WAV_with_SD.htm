@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Play_WAV_with_SD\Play_WAV_with_SD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Play_WAV_with_SD\Play_WAV_with_SD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Sep 14 14:29:05 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Sep 19 23:20:11 2019
 <BR><P>
 <H3>Maximum Stack Usage =        400 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -457,9 +457,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardState
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_write
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_CheckStatus
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_write
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_read
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_CheckStatus
 </UL>
 
 <P><STRONG><a name="[78]"></a>BSP_SD_Init</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, bsp_driver_sd.o(i.BSP_SD_Init))
@@ -648,8 +648,8 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_CheckFifoParam
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_CalcBaseAndBitshift
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
 
 <P><STRONG><a name="[8d]"></a>HAL_DMA_Start_IT</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, stm32f4xx_hal_dma.o(i.HAL_DMA_Start_IT))
@@ -673,20 +673,20 @@ Global Symbols
 <P><STRONG><a name="[8a]"></a>HAL_GPIO_Init</STRONG> (Thumb, 388 bytes, Stack size 40 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
 
 <P><STRONG><a name="[90]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_write
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_read
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
+<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_write
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_read
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 </UL>
 
 <P><STRONG><a name="[e5]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_IncTick))
@@ -723,9 +723,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b3]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
+<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
 
 <P><STRONG><a name="[9a]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
@@ -733,11 +733,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
+<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -789,9 +789,9 @@ Global Symbols
 <P><STRONG><a name="[7a]"></a>HAL_SD_ConfigWideBusOperation</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, stm32f4xx_hal_sd.o(i.HAL_SD_ConfigWideBusOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = HAL_SD_ConfigWideBusOperation &rArr; SD_WideBus_Enable &rArr; SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Enable
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Enable
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Disable
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_Init
 </UL>
@@ -832,13 +832,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_TxCpltCallback
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_RxCpltCallback
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_AbortCallback
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_DMATxAbort
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_DMARxAbort
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdStopTransfer
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_WriteFIFO
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_ReadFIFO
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ErrorCallback
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_DMATxAbort
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_DMARxAbort
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_IRQHandler
 </UL>
@@ -855,11 +855,11 @@ Global Symbols
 <P><STRONG><a name="[af]"></a>HAL_SD_InitCard</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, stm32f4xx_hal_sd.o(i.HAL_SD_InitCard))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = HAL_SD_InitCard &rArr; SD_InitCard &rArr; SDMMC_CmdSetRelAdd &rArr; SDMMC_GetCmdResp6 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_PowerState_ON
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_PowerState_ON
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_Init
 </UL>
@@ -965,7 +965,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM7_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM6_Init
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_wave
 </UL>
 
 <P><STRONG><a name="[bf]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_Base_MspInit))
@@ -1108,12 +1107,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SDIO_GetResponse
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardState
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetCmdResp6
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetCmdResp1
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Enable
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Disable
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetCmdResp6
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetCmdResp1
 </UL>
 
 <P><STRONG><a name="[3b]"></a>SDIO_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SDIO_IRQHandler))
@@ -1127,8 +1126,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SDIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_InitCard
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
 </UL>
 
 <P><STRONG><a name="[b0]"></a>SDIO_PowerState_ON</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_ll_sdmmc.o(i.SDIO_PowerState_ON))
@@ -1343,9 +1342,9 @@ Global Symbols
 <P><STRONG><a name="[6b]"></a>SD_read</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, sd_diskio.o(i.SD_read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SD_read &rArr; BSP_SD_ReadBlocks_DMA &rArr; HAL_SD_ReadBlocks_DMA &rArr; SDMMC_CmdReadSingleBlock &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_ReadBlocks_DMA
+<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_ReadBlocks_DMA
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_GetCardState
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sd_diskio.o(.constdata)
 </UL>
@@ -1359,9 +1358,9 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>SD_write</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, sd_diskio.o(i.SD_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = SD_write &rArr; BSP_SD_WriteBlocks_DMA &rArr; HAL_SD_WriteBlocks_DMA &rArr; SDMMC_CmdWriteSingleBlock &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_WriteBlocks_DMA
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_WriteBlocks_DMA
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_GetCardState
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sd_diskio.o(.constdata)
 </UL>
@@ -1415,13 +1414,12 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>_Error_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i._Error_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_MspInit
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM7_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM6_Init
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DAC_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;play_wave
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
 
 <P><STRONG><a name="[131]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
@@ -1430,7 +1428,7 @@ Global Symbols
 
 <P><STRONG><a name="[133]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[f6]"></a>decode_PCM_to_DAC</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, wave.o(i.decode_PCM_to_DAC))
+<P><STRONG><a name="[f6]"></a>decode_PCM_to_DAC</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, wave.o(i.decode_PCM_to_DAC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = decode_PCM_to_DAC &rArr; malloc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
@@ -1627,16 +1625,14 @@ Global Symbols
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ff_memalloc
 </UL>
 
-<P><STRONG><a name="[121]"></a>play_wave</STRONG> (Thumb, 590 bytes, Stack size 32 bytes, wave.o(i.play_wave))
+<P><STRONG><a name="[121]"></a>play_wave</STRONG> (Thumb, 510 bytes, Stack size 32 bytes, wave.o(i.play_wave))
 <BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = play_wave &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_read
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_open
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mount
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_lseek
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_Start_DMA
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DAC_Start
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_sample
@@ -1774,12 +1770,12 @@ Local Symbols
 <P><STRONG><a name="[e2]"></a>SD_FindSCR</STRONG> (Thumb, 212 bytes, Stack size 72 bytes, stm32f4xx_hal_sd.o(i.SD_FindSCR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSendSCR
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSendSCR
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBlockLength
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_ReadFIFO
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_ConfigData
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Enable
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WideBus_Disable
@@ -1815,10 +1811,10 @@ Local Symbols
 <P><STRONG><a name="[a2]"></a>SD_WideBus_Disable</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, stm32f4xx_hal_sd.o(i.SD_WideBus_Disable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SD_WideBus_Disable &rArr; SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBusWidth
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBusWidth
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_GetResponse
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
 </UL>
@@ -1826,10 +1822,10 @@ Local Symbols
 <P><STRONG><a name="[a1]"></a>SD_WideBus_Enable</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, stm32f4xx_hal_sd.o(i.SD_WideBus_Enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SD_WideBus_Enable &rArr; SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1 &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBusWidth
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBusWidth
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_GetResponse
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
 </UL>

@@ -122,7 +122,7 @@ int main(void)
 	char *my_file_name_0 = "crow2.wav";		
 	char *my_file_name_1 = "Crow.wav";		
 	char *my_file_name_2 = "engine.wav";		
-	char *my_file_name_3 = "1kHz_44100Hz_16bit_mono.wav";		
+	char *my_file_name_3 = "1kHz_8000Hz_16bit_mono.wav";		
 	char *my_file_name_4 = "try.wav";	
 	play_wave(my_file_name_3);
   /* USER CODE END 2 */

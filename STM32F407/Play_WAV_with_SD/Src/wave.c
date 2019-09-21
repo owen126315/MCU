@@ -106,32 +106,34 @@ int play_wave(char *file_name)
 		
 
 		//timer 6 setup
-		if(header.sample_rate == 44100)
-		{
-			htim6.Init.Prescaler = 1-1;
-			htim6.Init.Period = 1904-1;
-		}
-		else if(header.sample_rate == 22050)
-		{
-			htim6.Init.Prescaler = 1-1;
-			htim6.Init.Period = 3809-1;
-		}
-		else if(header.sample_rate == 8000)
-		{
-			htim6.Init.Prescaler = 42-1;
-			htim6.Init.Period = 125-1;
-		}
-		else if(header.sample_rate == 16000)
-		{
-			htim6.Init.Prescaler = 1-1;
-			htim6.Init.Period = 2625-1;
-		}
+//		if(header.sample_rate == 44100)
+//		{
+//			htim6.Init.Prescaler = 1-1;
+//			htim6.Init.Period = 952-1;
+//		}
+//		else if(header.sample_rate == 22050)
+//		{
+//			htim6.Init.Prescaler = 1-1;
+//			htim6.Init.Period = 1904-1;
+//		}
+//		else if(header.sample_rate == 8000)
+//		{
+//			htim6.Init.Prescaler = 42-1;
+//			htim6.Init.Period = 125-1;
+//		}
+//		else if(header.sample_rate == 16000)
+//		{
+//			htim6.Init.Prescaler = 1-1;
+//			htim6.Init.Period = 2625-1;
+//		}
 		
 		
-		if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
-		{
-			_Error_Handler(__FILE__, __LINE__);
-		}
+//		if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+//		{
+//			_Error_Handler(__FILE__, __LINE__);
+//		}
+		
+		
 		HAL_TIM_Base_Start(&htim6);
 		
 		//start DAC channel and DMA
@@ -232,8 +234,13 @@ void decode_PCM_to_DAC(Sample_buffer *buffer)
 			for(uint16_t i=0; i<buffer->sample_num; i++)
 			{
 				int sign = 1;
-				int16_t temp = (buffer->buffer[i] <<8) | (buffer->buffer[i] >>8);;
-				buffer->buffer[i] = ( temp + 32768) * 4095 / 65535;
+				uint16_t temp = (buffer->buffer[i] <<8) | (buffer->buffer[i] >>8);
+				if(temp & 0X8000)
+				{
+					sign = -1;
+					temp = (temp^0xFFFF)+1;
+				}
+				buffer->buffer[i] = ( sign * temp + 32768) * 4095 / 65535;
 			}				
 			break;
 		}
