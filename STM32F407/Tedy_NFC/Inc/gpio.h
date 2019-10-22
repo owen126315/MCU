@@ -49,17 +49,21 @@
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "NDEF_Message.h"
+#include "Mifare_Classic.h"
+#include "NFC_Tag.h"
+#include "FN_RM01.h"	 
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-
+//extern struct NFC_Tag tag;
+extern int file_num;	 
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

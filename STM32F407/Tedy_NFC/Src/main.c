@@ -41,14 +41,21 @@
 #include "stm32f4xx_hal.h"
 #include "usart.h"
 #include "gpio.h"
-#include "PN532.h"
+
 /* USER CODE BEGIN Includes */
+#include "PN532.h"
+#include "NFC_Tag.h"
+#include "FN_RM01.h"
 
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+NFC_Tag tag;
+char file_name[4];
+int file_num;
+int is_recording = 0;
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE END PV */
@@ -73,7 +80,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -97,10 +104,14 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_IT(&huart1,&uart_rx_temp,1);
+	HAL_UART_Receive_IT(&huart1,&uart1_rx_temp,1);
+	HAL_UART_Receive_IT(&huart2,&uart2_rx_temp,1);
+//	FN_RM01_Get_File_Num(&file_num);
   PN532_WakeUp();
 	PN532_SAMConfig();
-	/* USER CODE END 2 */
+	FN_RM01_Play_Sound("powe");
+
+  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -108,10 +119,24 @@ int main(void)
   {
 
   /* USER CODE END WHILE */
-		HAL_UART_Transmit(&huart1, "hi\n", 3, 1000);
-		HAL_Delay(500);
-  /* USER CODE BEGIN 3 */
 
+  /* USER CODE BEGIN 3 */
+		HAL_Delay(300);				
+		if(!is_recording)
+		{
+			HAL_NVIC_DisableIRQ(EXTI4_IRQn);
+			if(PN532_InListPassiveTarget(PN532_MIFARE_ISO14443A, &tag))
+			{
+				if(PN532_Read_Tag(&tag))
+				{
+					memcpy(file_name, tag.ndefMessage.record[0].payload+3,4);
+					FN_RM01_Play_Sound(file_name);
+				}
+				memset(file_name, 0, 4);
+				NFC_Clear_Tag(&tag);			
+			}
+			HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+		}
   }
   /* USER CODE END 3 */
 

@@ -54,13 +54,16 @@
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 
-
 /* USER CODE BEGIN Private defines */
-#define UART_BUFF_SIZE      					(0X100)
+#define UART_BUFF_SIZE      					(100)
 
-extern uint8_t uart_rx_len;
-extern uint8_t uart_rx_temp;
-extern uint8_t uart_rx_data[UART_BUFF_SIZE];	 	 
+extern uint8_t uart1_rx_len;
+extern uint8_t uart1_rx_temp;
+extern uint8_t uart1_rx_data[UART_BUFF_SIZE];	 	 
+	 
+extern uint8_t uart2_rx_len;
+extern uint8_t uart2_rx_temp;
+extern uint8_t uart2_rx_data[UART_BUFF_SIZE];		 
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -70,7 +73,8 @@ void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void get_rx_data_len(uint8_t *len);
-void clean_uart_rx_data(void);
+void clean_uart1_rx_data(void);
+void clean_uart2_rx_data(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

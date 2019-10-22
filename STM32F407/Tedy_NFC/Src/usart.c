@@ -43,9 +43,13 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
-uint8_t uart_rx_len = 0;
-uint8_t uart_rx_temp;
-uint8_t uart_rx_data[UART_BUFF_SIZE];
+uint8_t uart1_rx_len;
+uint8_t uart1_rx_temp;
+uint8_t uart1_rx_data[UART_BUFF_SIZE];
+
+uint8_t uart2_rx_len;
+uint8_t uart2_rx_temp;
+uint8_t uart2_rx_data[UART_BUFF_SIZE];
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -76,7 +80,7 @@ void MX_USART2_UART_Init(void)
 {
 
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -114,7 +118,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* USART1 interrupt Init */
-    HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(USART1_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspInit 1 */
 
@@ -139,6 +143,9 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* USART2 interrupt Init */
+    HAL_NVIC_SetPriority(USART2_IRQn, 3, 0);
+    HAL_NVIC_EnableIRQ(USART2_IRQn);
   /* USER CODE BEGIN USART2_MspInit 1 */
 
   /* USER CODE END USART2_MspInit 1 */
@@ -182,6 +189,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);
 
+    /* USART2 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(USART2_IRQn);
   /* USER CODE BEGIN USART2_MspDeInit 1 */
 
   /* USER CODE END USART2_MspDeInit 1 */
@@ -193,23 +202,38 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
   if(UartHandle->Instance == USART1)
 	{
-		uart_rx_data[uart_rx_len++] = uart_rx_temp; 
-		HAL_UART_Receive_IT(&huart1,&uart_rx_temp,1);
+		uart1_rx_data[uart1_rx_len++] = uart1_rx_temp; 
+		HAL_UART_Receive_IT(&huart1,&uart1_rx_temp,1);
+	}
+	
+	if(UartHandle->Instance == USART2)
+	{
+		uart2_rx_data[uart2_rx_len++] = uart2_rx_temp; 
+		HAL_UART_Receive_IT(&huart2,&uart2_rx_temp,1);
 	}
 }
 
 void get_rx_data_len(uint8_t *len)
 {
-	*len = uart_rx_len;
+	*len = uart1_rx_len;
 }
 
-void clean_uart_rx_data(void)
+void clean_uart1_rx_data(void)
 {
-  uint8_t i = uart_rx_len;
-  uart_rx_len = 0;
+  uint8_t i = uart1_rx_len;
+  uart1_rx_len = 0;
 	
 	while(i)
-		uart_rx_data[--i]=0;
+		uart1_rx_data[--i]=0;
+}
+
+void clean_uart2_rx_data(void)
+{
+  uint8_t i = uart2_rx_len;
+  uart2_rx_len = 0;
+	
+	while(i)
+		uart2_rx_data[--i]=0;
 }
 /* USER CODE END 1 */
 

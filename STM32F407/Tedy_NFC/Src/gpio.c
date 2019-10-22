@@ -47,7 +47,9 @@
 /* Configure GPIO                                                             */
 /*----------------------------------------------------------------------------*/
 /* USER CODE BEGIN 1 */
-
+extern NFC_Tag tag;
+extern char file_name[4];
+extern int is_recording;
 /* USER CODE END 1 */
 
 /** Configure pins as 
@@ -72,16 +74,22 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
-  /*Configure GPIO pins : PE2 PE3 PE4 PE5 
-                           PE6 PE7 PE8 PE9 
-                           PE10 PE11 PE12 PE13 
-                           PE14 PE15 PE0 PE1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5 
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9 
-                          |GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13 
-                          |GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_0|GPIO_PIN_1;
+  /*Configure GPIO pins : PE2 PE3 PE5 PE6 
+                           PE7 PE8 PE9 PE10 
+                           PE11 PE12 PE13 PE14 
+                           PE15 PE0 PE1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_5|GPIO_PIN_6 
+                          |GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10 
+                          |GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14 
+                          |GPIO_PIN_15|GPIO_PIN_0|GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PE4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC13 PC14 PC15 PC0 
@@ -130,10 +138,101 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
 }
 
 /* USER CODE BEGIN 2 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	HAL_NVIC_DisableIRQ(EXTI4_IRQn);
+	if(HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_4) == 0) //button pressed
+	{
+		if(PN532_InListPassiveTarget(PN532_MIFARE_ISO14443A, &tag))
+		{
+			FN_RM01_Play_Sound("reco");		
+			FN_RM01_Get_FileName(file_num, file_name);
+						
+			NDEF_Record_Create_TextRecord(file_name, sizeof(file_name), &tag.ndefMessage.record[0]);
+			tag.ndefMessage.record_Count++;
+						
+			if(PN532_Write_Tag(&tag))
+			{
+				FN_RM01_Record_Sound(file_name);
+				is_recording = 1;
+			}
+			NFC_Clear_Tag(&tag);
+		}
+	}
+	
+	else //button release
+	{
+		if(is_recording)
+		{
+			FN_RM01_Stop_Record();
+		
+			if(PN532_InListPassiveTarget(PN532_MIFARE_ISO14443A, &tag))
+			{
+				if(PN532_Read_Tag(&tag))
+				{
+					if(memcmp(tag.ndefMessage.record[0].payload+3, file_name, 4) == 0)
+					{
+						FN_RM01_Play_Sound("done");
+						file_num++;
+					}
+					else
+						FN_RM01_Remove_Sound(file_name);
+				}
+				NFC_Clear_Tag(&tag);
+			}
+			else
+				FN_RM01_Remove_Sound(file_name);
+			
+			is_recording = 0;
+		}
+	}
+	HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+	
+//	if(PN532_InListPassiveTarget(PN532_MIFARE_ISO14443A, &tag))
+//	{
+////		FN_RM01_Play_Sound("reco");		
+//		FN_RM01_Get_FileName(file_num, file_name);
+//		
+//		NDEF_Record_Create_TextRecord(file_name, sizeof(file_name), &tag.ndefMessage.record[0]);
+//		tag.ndefMessage.record_Count++;
+//		
+////		NDEF_Record_Create_TextRecord("trytry", strlen("trytry"), &tag.ndefMessage.record[1]);
+////		tag.ndefMessage.record_Count++;
+//		
+//		Mifare_Classic_Write(&tag);		
+//		NFC_Clear_Tag(&tag);
+//		
+//		//FN_RM01_Record_Sound(filename);
+//		
+//		while(!HAL_GPIO_ReadPin(GPIOE,GPIO_PIN_4));
+//		
+//		//FN_RM01_Stop_Record();
+//		
+//		if(PN532_InListPassiveTarget(PN532_MIFARE_ISO14443A, &tag))
+//		{
+//			if(PN532_Read_Tag(&tag))
+//			{
+//				if(memcmp(tag.ndefMessage.record[0].payload+3, file_name, 4) == 0)
+//				{
+//					//FN_RM01_Play_Sound("done");
+//					file_num++;
+//				}
+//				else
+//					FN_RM01_Remove_Sound(file_name);
+//			}
+//			NFC_Clear_Tag(&tag);
+//		}
+//		else
+//			FN_RM01_Remove_Sound(file_name);
+//	}
+}
 /* USER CODE END 2 */
 
 /**

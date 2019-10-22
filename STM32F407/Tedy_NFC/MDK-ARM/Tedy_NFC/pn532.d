@@ -30,3 +30,10 @@ tedy_nfc\pn532.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 tedy_nfc\pn532.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 tedy_nfc\pn532.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 tedy_nfc\pn532.o: ../Inc/usart.h
+tedy_nfc\pn532.o: ../Inc/NFC_Tag.h
+tedy_nfc\pn532.o: ../Inc/NDEF_Message.h
+tedy_nfc\pn532.o: ../Inc/NDEF_Record.h
+tedy_nfc\pn532.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+tedy_nfc\pn532.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+tedy_nfc\pn532.o: ../Inc/Mifare_Classic.h
+tedy_nfc\pn532.o: ../Inc/Mifare_Ultralight.h

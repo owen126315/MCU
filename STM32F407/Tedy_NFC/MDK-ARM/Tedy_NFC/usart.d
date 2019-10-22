@@ -30,3 +30,12 @@ tedy_nfc\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 tedy_nfc\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 tedy_nfc\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 tedy_nfc\usart.o: ../Inc/gpio.h
+tedy_nfc\usart.o: ../Inc/NDEF_Message.h
+tedy_nfc\usart.o: ../Inc/NDEF_Record.h
+tedy_nfc\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+tedy_nfc\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+tedy_nfc\usart.o: ../Inc/Mifare_Classic.h
+tedy_nfc\usart.o: ../Inc/PN532.h
+tedy_nfc\usart.o: ../Inc/NFC_Tag.h
+tedy_nfc\usart.o: ../Inc/FN_RM01.h
+tedy_nfc\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\Math.h
